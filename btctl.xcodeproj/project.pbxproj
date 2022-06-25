@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		5B87ACA528675D0700A5AA9D /* ArgumentParser in Frameworks */ = {isa = PBXBuildFile; productRef = 5B87ACA428675D0700A5AA9D /* ArgumentParser */; };
 		5BE2DF84286755DF007F6E0A /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE2DF83286755DF007F6E0A /* main.swift */; };
+		5BF3A9F728678CC3006523EC /* BluetoothControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF3A9F628678CC3006523EC /* BluetoothControl.swift */; };
+		5BF3A9F928678EAB006523EC /* BluetoothDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF3A9F828678EAB006523EC /* BluetoothDevice.swift */; };
+		5BF3A9FB2867908E006523EC /* BluetoothFramework.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF3A9FA2867908E006523EC /* BluetoothFramework.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,6 +29,9 @@
 /* Begin PBXFileReference section */
 		5BE2DF80286755DF007F6E0A /* btctl */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = btctl; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BE2DF83286755DF007F6E0A /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		5BF3A9F628678CC3006523EC /* BluetoothControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothControl.swift; sourceTree = "<group>"; };
+		5BF3A9F828678EAB006523EC /* BluetoothDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothDevice.swift; sourceTree = "<group>"; };
+		5BF3A9FA2867908E006523EC /* BluetoothFramework.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothFramework.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +66,9 @@
 			isa = PBXGroup;
 			children = (
 				5BE2DF83286755DF007F6E0A /* main.swift */,
+				5BF3A9F628678CC3006523EC /* BluetoothControl.swift */,
+				5BF3A9F828678EAB006523EC /* BluetoothDevice.swift */,
+				5BF3A9FA2867908E006523EC /* BluetoothFramework.swift */,
 			);
 			path = btctl;
 			sourceTree = "<group>";
@@ -128,7 +137,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BF3A9F928678EAB006523EC /* BluetoothDevice.swift in Sources */,
+				5BF3A9F728678CC3006523EC /* BluetoothControl.swift in Sources */,
 				5BE2DF84286755DF007F6E0A /* main.swift in Sources */,
+				5BF3A9FB2867908E006523EC /* BluetoothFramework.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
