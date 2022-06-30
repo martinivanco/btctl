@@ -22,21 +22,26 @@ struct BluetoothFramework {
         return paired.filter { $0.connected }
     }
     
-    static func connect(address: String, timeout: TimeInterval?) -> Bool {
+    static func connect(address: String, timeout: TimeInterval?) async -> Bool {
         let device = IOBluetoothDevice(addressString: address)
-        guard let t = timeout else {
+        guard let timeout = timeout else {
             return device?.openConnection() == kIOReturnSuccess
         }
         
-        let semaphore = DispatchSemaphore(value: 0)
-        var result = false
-
-        DispatchQueue.main.async {
-            result = device?.openConnection() == kIOReturnSuccess
-            semaphore.signal()
+        let timeoutTask = Task { () -> Bool in
+            do {
+                try await Task.sleep(nanoseconds: UInt64(round(timeout * 1000000000)))
+            } catch { return true }
+            return false
         }
-
-        _ = semaphore.wait(timeout: .now() + t)
-        return result
+        
+        let connectTask = Task { () -> Bool in
+            let result = device?.openConnection() == kIOReturnSuccess
+            timeoutTask.cancel()
+            return result
+        }
+        
+        guard await timeoutTask.value else { return false }
+        return await connectTask.value
     }
 }

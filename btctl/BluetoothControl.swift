@@ -8,7 +8,8 @@
 import ArgumentParser
 import Foundation
 
-struct BluetoothControl: ParsableCommand {
+@main
+struct BluetoothControl: AsyncParsableCommand {
     static let configuration = CommandConfiguration(
         commandName: "btctl",
         abstract: "Bluetooth control utility",
@@ -38,7 +39,7 @@ struct BluetoothControl: ParsableCommand {
         }
     }
     
-    struct Connect: ParsableCommand {
+    struct Connect: AsyncParsableCommand {
         static let configuration = CommandConfiguration(abstract: "Connect to a bluetooth device")
 
         @Argument(help: "The address of the device to connect")
@@ -47,8 +48,8 @@ struct BluetoothControl: ParsableCommand {
         @Option(name: .shortAndLong, help: "Optional timeout for the call in seconds")
         var timeout: TimeInterval?
 
-        func run() {
-            if BluetoothFramework.connect(address: address, timeout: timeout) {
+        func run() async {
+            if await BluetoothFramework.connect(address: address, timeout: timeout) {
                 print("Successfully connected \(address).")
             } else {
                 print("Error: Couldn't connect \(address)!")
