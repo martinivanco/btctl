@@ -62,6 +62,14 @@ struct BluetoothFramework {
         return device?.isPaired() ?? false
     }
     
+    static func unpair(address: String) -> Bool {
+        // There is no public API for unpairing, so we need this ugly hack with a custom selector
+        let device = IOBluetoothDevice(addressString: address)
+        let selector = Selector(("remove"))
+        if device?.responds(to: selector) ?? false { device?.perform(selector) }
+        return !(device?.isPaired() ?? true)
+    }
+    
     @objcMembers
     private class PairDelegate: NSObject, IOBluetoothDevicePairDelegate {
         public var callback: (() -> Void)?

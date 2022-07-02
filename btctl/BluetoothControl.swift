@@ -13,7 +13,7 @@ struct BluetoothControl: AsyncParsableCommand {
     static let configuration = CommandConfiguration(
         commandName: "btctl",
         abstract: "Bluetooth control utility",
-        subcommands: [Connected.self, Paired.self, Connect.self, Pair.self])
+        subcommands: [Connected.self, Paired.self, Connect.self, Pair.self, Unpair.self])
     
     struct Connected: ParsableCommand {
         static let configuration = CommandConfiguration(abstract: "Get list of connected devices")
@@ -71,6 +71,21 @@ struct BluetoothControl: AsyncParsableCommand {
                 print("Successfully paired \(address).")
             } else {
                 print("Error: Couldn't pair \(address)!")
+            }
+        }
+    }
+
+    struct Unpair: ParsableCommand {
+        static let configuration = CommandConfiguration(abstract: "Unpair a bluetooth device")
+
+        @Argument(help: "The address of the device to unpair")
+        var address: String
+
+        func run() {
+            if BluetoothFramework.unpair(address: address) {
+                print("Successfully unpaired \(address).")
+            } else {
+                print("Error: Couldn't unpair \(address)!")
             }
         }
     }
