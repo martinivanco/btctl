@@ -43,7 +43,7 @@ struct BluetoothControl: AsyncParsableCommand {
     }
 
     struct Connect: AsyncParsableCommand {
-        static let configuration = CommandConfiguration(abstract: "Connect to a bluetooth device")
+        static let configuration = CommandConfiguration(abstract: "Connect a bluetooth device")
 
         @Argument(help: "The address of the device to connect")
         var address: String
@@ -69,7 +69,7 @@ struct BluetoothControl: AsyncParsableCommand {
     }
 
     struct Pair: AsyncParsableCommand {
-        static let configuration = CommandConfiguration(abstract: "Pair with a bluetooth device")
+        static let configuration = CommandConfiguration(abstract: "Pair a bluetooth device")
 
         @Argument(help: "The address of the device to pair")
         var address: String

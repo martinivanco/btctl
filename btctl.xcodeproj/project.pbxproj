@@ -26,6 +26,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5BD716E428734A1B00E689C6 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		5BE2DF80286755DF007F6E0A /* btctl */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = btctl; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BF3A9F628678CC3006523EC /* BluetoothControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothControl.swift; sourceTree = "<group>"; };
 		5BF3A9F828678EAB006523EC /* BluetoothDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothDevice.swift; sourceTree = "<group>"; };
@@ -48,6 +49,7 @@
 			isa = PBXGroup;
 			children = (
 				5BE2DF82286755DF007F6E0A /* btctl */,
+				5BD716E428734A1B00E689C6 /* README.md */,
 				5BE2DF81286755DF007F6E0A /* Products */,
 			);
 			sourceTree = "<group>";
